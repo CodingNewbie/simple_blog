@@ -8,4 +8,8 @@
 <small>Created by: {{ post.author }}</small>
 <small>Created on: {{ post.created_on }}</small>
 <p>{{ post.body }}</p>
+
+{% if request.user == post.author %}
+    <a href="{% url 'edit' post.id %}" class="btn btn-primary">Edit</a>
+{% endif %}
 {% endblock content %}

@@ -1,15 +1,37 @@
 {% extends 'base.html' %}
 
-{% block title %}About{% endblock title %}
-
+{% block title %}About Us{% endblock title %}
 
 {% block content %}
-<h1>About Discourse</h1>
-<p>
-    Discourse is a pioneering blog forum committed to safeguarding user privacy and data integrity. Founded on the
-    principle of putting users first, Discourse takes a staunch stance against the common practice of selling user data
-    to third parties for profit. With a strong emphasis on transparency and ethical data handling, Discourse provides a
-    secure platform for individuals to engage in meaningful discussions without compromising their privacy. By
-    prioritizing user trust and confidentiality, Discourse cultivates a vibrant online community where individuals can
-    freely express themselves without fear of exploitation or intrusion.</p>
+<div class="container my-5">
+    <h1 class="display-4 text-center mb-3 fw-normal">About Git Happens</h1>
+    <h3 class="text-center text-secondary mb-4 fw-normal">More than just another coding blog!</h3>
+
+    <div class="bg-light p-5 rounded-lg m-3">
+        <h4 class="text-center mb-4 fw-normal">Our Mission</h4>
+        <p class="lead fw-normal">
+            At <strong>Git Happens</strong>, we believe every bug has a story to tell. We're here to share those stories,
+            from spectacular fails to epic victories. Our mission is to show that coding isn't just about getting it right
+            the first time—it's about the journey of learning, adapting, and yes, sometimes breaking things.
+        </p>
+
+        <h4 class="text-center mt-5 mb-4 fw-normal">Who We Are</h4>
+        <p class="fw-normal">
+            We're a team of developers, dreamers, and, most importantly, doers. Founded by a group of friends who met at a hackathon,
+            Git Happens has grown into a community for coders by coders. Whether you're a seasoned pro or just starting out,
+            there's a place for you here to laugh, learn, and code together.
+        </p>
+
+        <h4 class="text-center mt-5 mb-4 fw-normal">Why 'Git Happens'?</h4>
+        <p class="fw-normal">
+            The name "Git Happens" is a playful nod to both the version control system and the unexpected moments that occur
+            when pushing code. We've all been there—late-night coding sessions where one wrong command sends you spiraling into
+            a coding conundrum. But hey, that's how we learn (and get some of our best stories)!
+        </p>
+    </div>
+
+    <div class="text-center mt-4">
+        <p class="font-italic fw-normal">Got a story or want to become a contributor? Reach out—we're always looking for more tales of code and chaos.</p>
+    </div>
+</div>
 {% endblock content %}

@@ -12,7 +12,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}">Discourse</a>
+            <a class="navbar-brand" href="{% url 'home' %}">Git Happens</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -26,21 +26,24 @@
                         <a class="nav-link" href="{% url 'about' %}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'list' %}">Discourse</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'new' %}">New Post</a>
                     </li>
                     {% if user.is_authenticated %}
-                    <form action="{% url 'password_change' %}" method="POST">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'archived' %}">Archived</a>
+                    </li>
+                    <form action="{% url 'password_reset' %}" method="POST">
                         {% csrf_token %}
-                        <input type="submit" class="nav-link" value="Settings">
+                        <input type="submit" class="nav-link" value="Reset Password">
                     </form>
                     <form action="{% url 'logout' %}" method="POST">
                         {% csrf_token %}
                         <input type="submit" class="nav-link" value="Log Out">
                     </form>
                     {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'login' %}">Login</a>
                     </li>

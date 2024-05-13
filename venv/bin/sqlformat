@@ -1,4 +1,4 @@
-#!/Users/notphilyoder/Code/SDGKU/blog/venv/bin/python3.12
+#!/home/codingnewbie/Code/SDGKU/simple_blog/venv/bin/python3.12
 # -*- coding: utf-8 -*-
 import re
 import sys
