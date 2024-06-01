@@ -1,22 +1,44 @@
-{% extends 'base.html' %}
-
-{% block title %}Posts{% endblock title %}
-
 {% block content %}
-<div class="container mt-4">
-    <h1 class="display-4 text-center mb-5">Posts</h1>
-    <div class="row">
-        {% for post in post_list %}
-        <div class="col-md-4 mb-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{{ post.title }}</h5>
-                    <p class="card-text">{{ post.body|truncatechars:128 }}</p>
-                    <a href="{% url 'detail' post.id %}" class="btn btn-primary">Read More</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-body {
+            padding: 0;
+        }
+        .card-title {
+            font-weight: 500;
+            padding: 15px 0 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for post in post_list %}
+            <div class="col">
+                <div class="card h-100 border-0">
+                    {% if post.image %}
+                    <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.body|truncatewords:10 }}</p>
+                        <a href="{% url 'detail' post.id %}" class="btn btn-secondary">Read More</a>
+                    </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
-</div>
+</body>
+</html>
 {% endblock content %}

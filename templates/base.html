@@ -7,17 +7,20 @@
     <title>{% block title %}{% endblock title %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}">Git Happens</a>
+        <div class="container">
+            <a class="navbar-brand fw-bold coding-font" href="{% url 'home' %}">Git Happens</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
@@ -32,14 +35,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'archived' %}">Archived</a>
                     </li>
-                    <form action="{% url 'password_reset' %}" method="POST">
-                        {% csrf_token %}
-                        <input type="submit" class="nav-link" value="Reset Password">
-                    </form>
-                    <form action="{% url 'logout' %}" method="POST">
-                        {% csrf_token %}
-                        <input type="submit" class="nav-link" value="Log Out">
-                    </form>
+                    <li class="nav-item">
+                        <form action="{% url 'password_reset' %}" method="POST" class="d-inline">
+                            {% csrf_token %}
+                            <input type="submit" class="nav-link btn btn-link" value="Reset Password">
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form action="{% url 'logout' %}" method="POST" class="d-inline">
+                            {% csrf_token %}
+                            <input type="submit" class="nav-link btn btn-link" value="Log Out">
+                        </form>
+                    </li>
                     {% else %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
@@ -53,11 +60,15 @@
         </div>
     </nav>
 
-
-    <div class="container">
+    <div class="container mt-5">
         {% block content %}{% endblock content %}
     </div>
 
+    <style>
+        .coding-font {
+            font-family: 'Inconsolata', monospace;
+}
+    </style>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
